@@ -1,0 +1,137 @@
+<header
+  class="sticky top-0 z-50 backdrop-blur bg-white/70 dark:bg-neutral-900/70 border-b border-black/10 dark:border-white/10"
+>
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex h-16 items-center justify-between">
+      <a
+        href="#home"
+        class="flex items-center gap-2 font-semibold tracking-tight"
+      >
+        <span
+          class="inline-block size-3 rounded-full bg-gradient-to-tr from-blue-600 to-cyan-400"
+        ></span>
+        <span>Ezequiel Ramírez</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <!-- Botón tema -->
+        <div class="relative" id="theme-menu">
+          <button
+            id="theme-btn"
+            type="button"
+            class="inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/10 px-3 py-2 text-sm hover:bg-black/5 dark:hover:bg-white/10 transition"
+          >
+            <!-- Ícono activo (se cambia por JS) -->
+            <span id="theme-icon" class="inline-block">
+              <!-- Sol por defecto -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                class="h-5 w-5"
+              >
+                <path
+                  fill="currentColor"
+                  d="M12 18a6 6 0 1 0 0-12a6 6 0 0 0 0 12m0 4a1 1 0 0 1-1-1v-1a1 1 0 1 1 2 0v1a1 1 0 0 1-1 1M5.64 18.36a1 1 0 0 1-1.41-1.41l.71-.71a1 1 0 0 1 1.41 1.41zm12.02 0l-.71-.71a1 1 0 1 1 1.41-1.41l.71.71a1 1 0 1 1-1.41 1.41M3 13H2a1 1 0 1 1 0-2h1a1 1 0 1 1 0 2m19 0h-1a1 1 0 1 1 0-2h1a1 1 0 1 1 0 2M5.64 5.64a1 1 0 0 1 1.41 0l.71.71A1 1 0 0 1 6.35 7.76l-.71-.71a1 1 0 0 1 0-1.41m12.02 0a1 1 0 0 1 0 1.41l-.71.71a1 1 0 1 1-1.41-1.41l.71-.71a1 1 0 0 1 1.41 0M13 3v1a1 1 0 1 1-2 0V3a1 1 0 1 1 2 0"
+                />
+              </svg>
+            </span>
+            <span id="theme-label" class="hidden sm:inline">Tema</span>
+            <svg
+              class="h-4 w-4 opacity-60"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 0 1 1.08 1.04l-4.25 4.25a.75.75 0 0 1-1.08 0L5.21 8.27a.75.75 0 0 1 .02-1.06z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+          <!-- Dropdown -->
+          <div
+            id="theme-list"
+            class="invisible opacity-0 pointer-events-none absolute right-0 mt-2 w-44 rounded-xl border border-black/10 dark:border-white/10 bg-white dark:bg-neutral-900 shadow-xl transition [--dur:120ms] duration-[var(--dur)]"
+          >
+            <button
+              data-theme="light"
+              class="w-full flex items-center gap-3 px-3 py-2 text-sm hover:bg-black/5 dark:hover:bg-white/10 rounded-t-xl"
+            >
+              <!-- sol -->
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 18a6 6 0 1 0 0-12a6 6 0 0 0 0 12Z" />
+              </svg>
+              Claro
+            </button>
+            <button
+              data-theme="dark"
+              class="w-full flex items-center gap-3 px-3 py-2 text-sm hover:bg-black/5 dark:hover:bg-white/10"
+            >
+              <!-- luna -->
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3A7 7 0 0 0 21 12.79Z" />
+              </svg>
+              Oscuro
+            </button>
+            <button
+              data-theme="system"
+              class="w-full flex items-center gap-3 px-3 py-2 text-sm hover:bg-black/5 dark:hover:bg-white/10 rounded-b-xl"
+            >
+              <!-- laptop -->
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M4 6h16v9H4zM2 18h20v2H2z" />
+              </svg>
+              Sistema
+            </button>
+          </div>
+        </div>
+      </nav>
+      <button
+        id="menuBtn"
+        class="md:hidden p-2 rounded-lg border border-gray-300 hover:border-blue-500 dark:border-neutral-700"
+        aria-label="Abrir menú"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          class="size-5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+        >
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Menú mobile -->
+    <div id="mobileMenu" class="md:hidden hidden pb-4">
+      <div class="flex flex-col gap-2 text-sm">
+        <a
+          href="#about"
+          class="px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-neutral-800/70"
+          >Sobre mí</a
+        >
+        <a
+          href="#skills"
+          class="px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-neutral-800/70"
+          >Skills</a
+        >
+        <a
+          href="#projects"
+          class="px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-neutral-800/70"
+          >Proyectos</a
+        >
+        <a
+          href="#contact"
+          class="px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-neutral-800/70"
+          >Contacto</a
+        >
+        <a
+          href="#cv"
+          class="px-2 py-2 rounded border border-gray-300 dark:border-neutral-700 text-center hover:border-blue-500"
+          >Descargar CV</a
+        >
+      </div>
+    </div>
+  </div>
+</header>
